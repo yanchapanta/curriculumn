@@ -1,11 +1,94 @@
+:root {
+	--first-color: rgb(201, 15, 15);
+	--first-alpha-color: #221f1f;
+	--white-color: #fff;
+	--black-color: #141414;
+}
 * {
 	margin: 0;
 	padding: 0;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 16px;
 }
+
+.mt-1 {
+	margin-top: 1rem;
+}
+.mt-2 {
+	margin-top: 2rem;
+}
+.mt-3 {
+	margin-top: 3rem;
+}
+.mt-4 {
+	margin-top: 4rem;
+}
+.mt-5 {
+	margin-top: 5rem;
+}
+@page {
+	size: A4;
+	margin: 0;
+}
+@media print {
+	html,
+	body {
+		width: 210mm;
+		height: 297mm;
+	}
+	.header {
+		height: 150px;
+	}
+	.titulo {
+		border: 1px solid#eeeeee;
+		padding: 0.5%;
+		top: -74%;
+		color: #ffffff;
+		left: 3%;
+		width: 56%;
+	}
+}
+
 @import url('https://fonts.googleapis.com/css?family=Work+Sans:100&display=swap');
+a {
+	text-decoration: none;
+	color: var(--first-alpha-color);
+}
+a:hover {
+	font-weight: 600;
+	text-decoration: underline;
+}
+
 .container {
 	width: 80%;
 	margin: auto;
+}
+.letter-small {
+	font-size: 1rem;
+	font-weight: 500;
+	color: var(--first-alpha-color);
+	text-decoration: none;
+}
+.h2-subtitle {
+	font-size: 1rem;
+	font-weight: 800;
+	color: var(--black-color);
+}
+.titulo h1,
+.titulo h2,
+.titulo p {
+	font-family: 'Open Sans', sans-serif;
+	color: var(--white-color);
+}
+.titulo h1 {
+	font-size: 2rem;
+	font-size: 800;
+}
+.titulo h2 {
+	font-size: 1.5rem;
+}
+.titulo p {
+	font-size: 1rem;
 }
 .header {
 	width: 100%;
@@ -20,7 +103,7 @@
 		-0.09% 79.93%,
 		0px 0px
 	);
-	background-color: #d50000;
+	background-color: var(--first-color);
 	background-image: repeating-linear-gradient(
 			45deg,
 			rgba(0, 0, 0, 0.8),
@@ -35,6 +118,7 @@
 			transparent 0px,
 			transparent 200px
 		);
+	filter: blur(20deg);
 }
 .header > div {
 	position: relative;
@@ -45,10 +129,10 @@
 	background-color: grey;
 }
 .header .foto {
-	width: 19%;
+	width: 17%;
 	height: 78%;
-	left: calc(100% - 19% - 5%);
-	top: 20%;
+	left: calc(100% - 17% - 6%);
+	top: 15%;
 }
 .header .foto img {
 	width: 100%;
@@ -72,6 +156,9 @@
 	flex-flow: row wrap;
 	justify-content: space-between;
 }
+.tarjeta-padding {
+	padding: 0 9rem;
+}
 .tarjeta .experiencias,
 .estudios {
 	flex-basis: 50%;
@@ -81,31 +168,43 @@
 }
 .tarjeta .habilidades,
 .premios {
-	flex-basis: 25%;
+	flex-basis: 40%;
 }
+
 .infos {
-	margin: 10px;
+	margin: 16px;
 }
 .info {
 	display: flex;
-	padding: 5px 0px;
+	padding: 0;
 }
 .info strong {
 	width: 25%;
 }
 .info p {
+	width: 75%;
+}
+.info div {
+	width: 75%;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+.info div p {
+	width: 100%;
 }
 .selector {
-	border-bottom: 2px solid #0d0763;
+	border-bottom: 2px solid var(--black-color);
+	width: 90%;
 }
 .selector .selector_caja {
 	width: 20%;
 	height: 5px;
-	background-color: #1e13b4;
+	background-color: var(--black-color);
 }
 .habilidades ul,
 .premios ul {
-	padding-left: 5%;
+	padding-left: 2rem;
 }
 .boxe2 {
 	display: flex;
@@ -125,7 +224,32 @@
 	height: 100%;
 	background-color: black;
 }
-
+.seccion-part {
+	width: 75%;
+	margin: auto;
+	display: grid;
+	grid-template-columns: 40% 40%;
+	/* border: 2px solid green; */
+	justify-content: space-between;
+}
+.seccion-part ul {
+	padding: 0 1rem;
+}
+.seccion-part-iz,
+.seccion-part-de {
+	/* padding: 0 1rem; */
+}
+@media (max-width: 900px) {
+	.seccion-part {
+		width: 85%;
+	}
+}
+@media (max-width: 500px) {
+	.seccion-part {
+		grid-template-columns: 100%;
+		width: 85%;
+	}
+}
 /* ***********
 premios
  ************/
@@ -142,7 +266,7 @@ premios
 	flex-basis: 26%;
 }
 .interes_div > div ul {
-	padding: 0 10%;
+	padding: 0 2rem;
 }
 /* *********
 indiomas
@@ -161,20 +285,49 @@ indiomas
  footer
  ********/
 .footer {
+	margin-top: 2rem;
 	width: 100%;
-	height: 60px;
-	background-color: #06063a;
+	background-color: var(--black-color);
 	color: white;
 	display: flex;
-	flex-flow: column wrap;
+	flex-flow: row wrap;
 	justify-content: space-evenly;
 	align-items: center;
-}
-.footer_movil {
-	display: none;
+	/* position: fixed; */
+	bottom: 0;
 }
 
+.footer_phone a {
+	align-items: center;
+	display: flex;
+	text-decoration: none;
+	color: rgba(255, 255, 255, 0.808);
+	transition: color 0.3s ease;
+	padding: 0.5rem 0;
+}
+.footer_phone a:hover {
+	color: white;
+}
+/* contactos */
+.contact-caja {
+	width: 100%;
+	display: flex;
+	flex-flow: row;
+	gap: 0.5rem;
+}
+.contact-caja i {
+	color: #000000;
+}
+.tarjeta {
+	padding: 0 2rem;
+}
 @media (max-width: 900px) {
+	.container {
+		width: 95%;
+	}
+	.header {
+		height: 220px;
+	}
 	.header .foto {
 		left: calc(100% - 19% - 5%);
 	}
@@ -182,25 +335,24 @@ indiomas
 		width: 59%;
 	}
 	.info strong {
-		width: 54%;
+		width: 26%;
 	}
 	.tarjeta .experiencias,
 	.estudios {
-		flex-basis: 63%;
+		flex-basis: 50%;
 	}
 }
 @media only screen and (max-width: 600px) {
 	.header {
-	
 		display: flex;
 		flex-flow: row nowrap;
 		justify-content: space-around;
 		align-items: center;
 		width: 90%;
-		margin:auto;
+		margin: auto;
 		margin: 0;
-		padding:0;
-		position:static;
+		padding: 0;
+		position: static;
 
 		height: 150px;
 		clip-path: polygon(0px 0px, 100% 0%, 99.28% 100.66%, 2px 101%);
@@ -209,25 +361,24 @@ indiomas
 	.header .foto {
 		padding: 0;
 		margin: 0;
-		box-sizing: border-box;		
+		box-sizing: border-box;
 		position: static;
 		width: 30%;
 		height: calc(70%-200px);
 	}
 	.header .titulo {
-
 		padding: 0;
 		margin: 0;
-		box-sizing: border-box;		
+		box-sizing: border-box;
 		position: static;
-		
+
 		width: 50%;
 		height: calc(20%-200px);
 		font-size: 9px;
 		padding: 2% 3%;
-
 	}
 	.selector {
+		width: 90%;
 		margin-top: 17%;
 	}
 
@@ -268,7 +419,6 @@ indiomas
 		justify-content: space-evenly;
 		display: flex;
 		flex-flow: column wrap;
-		
 	}
 	.header .foto {
 		width: 40%;
@@ -281,16 +431,14 @@ indiomas
 		width: 100%;
 		align-self: flex-start;
 		display: flex;
-		
-
-
 
 		background-color: #d50000;
 	}
-	.titulo h1, .titulo h2{
+	.titulo h1,
+	.titulo h2 {
 		width: 100%;
-		
-		font-size: .8rem;
+
+		font-size: 0.8rem;
 	}
 	.selector {
 		margin-top: 17%;
@@ -299,10 +447,12 @@ indiomas
 	.container {
 		font-size: 12px;
 	}
-	.tarjeta .experiencias, .estudios {
+	.tarjeta .experiencias,
+	.estudios {
 		flex-basis: 100%;
 	}
-	.tarjeta .habilidades, .premios {
+	.tarjeta .habilidades,
+	.premios {
 		flex-basis: 100%;
 	}
 
